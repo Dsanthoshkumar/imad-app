@@ -25,7 +25,7 @@ var articles = {
  'article-two': {
       title: 'article two my page',
     headidng: 'artile two',
-    date: 'june 1',
+    date: 'june 2',
     content: `  <p>
                 this  is my first web app.
             </p>
@@ -40,7 +40,7 @@ var articles = {
     'article-three':{
          title: 'article three my page',
     headidng: 'artile three',
-    date: 'june 1',
+    date: 'june 3',
     content: `  <p>
                 this  is my first web app.
             </p>
