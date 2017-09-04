@@ -1,9 +1,13 @@
-console.log('Loaded!');
-
-var element = document.getElementById('main-text');
-element.innerHTML = 'new value';
-
-var img = document.getElementById('modi');
-      img.onclick = function () {
-    img.style.marginLeft ='500px';
-}
+// counter code
+var button = document.getElementById("counter");
+button.onclick = function () {
+    
+    //make a request to the counter endpoint
+    
+    //capture the response end store it in the variable
+    
+    //render the variable in the correct span
+    counter = counter + 1;
+    var span = document.getElementById('count');
+    span.innerHTML = counter.toString();
+};
