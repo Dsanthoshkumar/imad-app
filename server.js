@@ -1,7 +1,15 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var Pool = require('pg'.Pool);
 
+var config = {
+    user: 'santhoshkumard2015it',
+    database: 'santhoshkumard2015it',
+    host: 'santhoshkumard2015it@ssh.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
+};
 var app = express();
 app.use(morgan('combined'));
  
@@ -92,6 +100,7 @@ var htmlTemplate = `<html>
 return htmlTemplate;
 }
 
+
 var counter = 0;
 app.get('/counter', function (req,res) {
     counter = counter + 1;
@@ -102,6 +111,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+
+var pool = new pool (config);
+var get('/test',function (req,res) {
+    //request
+    //return as result
+    pool.send('SELECT * FROM test', function ())
+})
 app.get('/articlename', function (req,res) {
     //articlename == artile-one
    // articles[articlename] == {} content object of article one
