@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg'.Pool);
+var Pool = require('pg').Pool;
 
 var config = {
     user: 'santhoshkumard2015it',
@@ -101,6 +101,7 @@ return htmlTemplate;
 }
 
 
+
 var counter = 0;
 app.get('/counter', function (req,res) {
     counter = counter + 1;
@@ -113,11 +114,17 @@ app.get('/', function (req, res) {
 
 
 var pool = new pool (config);
-var get('/test',function (req,res) {
+app.get('/test-db',function (req,res) {
     //request
     //return as result
-    pool.send('SELECT * FROM test', function ())
-})
+    pool.send('SELECT * FROM test', function (err, result) {
+        if (err) {
+            res.status(500).send(err.toString());
+        } else {
+            res.send(JSON.stringify(result));
+        }
+    });
+});
 app.get('/articlename', function (req,res) {
     //articlename == artile-one
    // articles[articlename] == {} content object of article one
